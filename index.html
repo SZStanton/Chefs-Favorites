@@ -1,0 +1,113 @@
+<!-- Images credit: https://pixabay.com/ -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chef's Orders</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+
+  <!-- Banner and Title -->
+  <body>
+    <div class="hero-banner">
+      <img
+        src="Images/hero-banner.jpg"
+        alt="A delicious, perfectly cooked meal with herbs"
+      />
+    </div>
+    <header>
+      <div class="header-inner">
+        <span class="header-label" aria-hidden="true">EST. 27/04/2026</span>
+        <h1>Chef's Favourites</h1>
+        <span class="header-label" aria-hidden="true">ORDER DESK</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- Place Order -->
+      <div class="order-hero">
+        <img src="Images/pot.png" alt="A cooking pot" class="pot-icon" />
+        <section class="card" id="section-take">
+          <div class="card-header">
+            <span class="card-num">01</span>
+            <h2>Place an Order</h2>
+          </div>
+          <p class="card-desc">
+            Enter a main ingredient and the chef will pick a favourite dish for
+            you.
+          </p>
+          <div class="input-row">
+            <label for="ingredient-input">Main ingredient</label>
+            <input
+              type="text"
+              id="ingredient-input"
+              placeholder="e.g. beef, chicken, pork..."
+              autocomplete="off"
+              aria-label="Enter a main ingredient"
+            />
+            <button id="btn-order" aria-label="Place order">Order</button>
+          </div>
+          <div id="order-feedback" class="feedback" aria-live="polite"></div>
+        </section>
+      </div>
+
+      <!-- Food Images -->
+      <div class="food-strip">
+        <div class="food-strip__item">
+          <img src="Images/food-1.jpg" alt="Tasty medium rare steak" />
+          <span>Today's Special</span>
+        </div>
+        <div class="food-strip__item">
+          <img src="Images/food-2.jpg" alt="Tasty medium rare steak" />
+          <span>Chef's Pick</span>
+        </div>
+        <div class="food-strip__item">
+          <img src="Images/food-3.jpg" alt="Tasty medium rare steak" />
+          <span>House Favourite</span>
+        </div>
+      </div>
+
+      <!-- Pending Orders -->
+      <section class="card" id="section-complete">
+        <div class="card-header">
+          <span class="card-num">02</span>
+          <h2>Pending Orders</h2>
+        </div>
+        <p class="card-desc">
+          Enter an order number to mark it complete, or 0 to skip.
+        </p>
+        <div id="orders-list" aria-live="polite">
+          <p class="empty-msg">No pending orders yet.</p>
+        </div>
+        <div class="input-row" id="complete-controls" style="display: none">
+          <label for="complete-input">Order number to complete</label>
+          <input
+            type="number"
+            id="complete-input"
+            placeholder="Order #"
+            min="0"
+            aria-label="Enter order number to complete, or 0 to skip"
+          />
+          <button id="btn-complete" aria-label="Mark order as complete">
+            Complete
+          </button>
+        </div>
+        <div id="complete-feedback" class="feedback" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Powered by
+        <a
+          href="https://www.themealdb.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          >TheMealDB</a
+        >
+      </p>
+    </footer>
+
+    <script src="JS/app.js"></script>
+  </body>
+</html>

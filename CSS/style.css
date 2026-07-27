@@ -1,0 +1,357 @@
+/* === Reusable Variables === */
+/* Recently discovered this, very useful for re-using colors! */
+:root {
+  --bg: #f5f0e8;
+  --paper: #fffdf7;
+  --ink: #1a1208;
+  --muted: #6b5e45;
+  --accent: #c0392b;
+  --accent-light: #e8d5d3;
+  --border: #c8b99a;
+  --mono: ui-monospace, 'Cascadia Code', 'Courier New', Courier, monospace;
+  --display: Georgia, 'Times New Roman', serif;
+  --radius: 2px;
+}
+
+/* === Banner and Pot Images */
+.hero-banner {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* A nice gradient for top banner */
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, rgba(26, 18, 8, 0.45));
+  pointer-events: none;
+}
+
+.order-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pot-icon {
+  width: 33%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+}
+
+.order-hero .card {
+  width: 100%;
+}
+
+/* === Food Images === */
+.food-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.food-strip__item {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.food-strip__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.food-strip__item:hover img {
+  transform: scale(1.15);
+}
+
+/* === Image Labels === */
+.food-strip__item span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 18, 8, 0.62);
+  color: #fffdf7;
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  padding: 0.3rem 0.5rem;
+}
+
+/* === Header === */
+header {
+  border-bottom: 3px double var(--border);
+  padding: 1.25rem 1rem 1rem;
+  background: var(--paper);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.header-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* Important to make the Title look good */
+h1 {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+  letter-spacing: 0.04rem;
+  text-align: center;
+  color: var(--ink);
+}
+
+h1::after {
+  content: '- ✦ -';
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-top: 3px;
+  text-align: center;
+}
+
+/* === Main === */
+main {
+  max-width: 700px;
+  width: 100%;
+  margin: 0.75rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* === Card === */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent) 0 8px,
+    transparent 8px 14px
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-num {
+  font-family: var(--display);
+  font-size: 2rem;
+  color: var(--accent);
+  line-height: 1;
+  opacity: 0.35;
+}
+
+h2 {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+}
+
+.card-desc {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 1rem;
+}
+
+/* === Input Row === */
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+input[type='text'],
+input[type='number'] {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.75rem;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
+}
+
+input[type='number'] {
+  max-width: 120px;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.55rem 1.25rem;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.1s,
+    box-shadow 0.15s;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(192, 57, 43, 0.25);
+}
+
+button:hover {
+  background: #a93226;
+  box-shadow: 0 3px 10px rgba(192, 57, 43, 0.35);
+}
+button:active {
+  transform: scale(0.97);
+}
+
+/* === Feedback === */
+.feedback {
+  margin-top: 0.75rem;
+  font-size: 12px;
+  min-height: 1.2em;
+}
+
+.feedback.success {
+  color: #27704a;
+}
+.feedback.error {
+  color: var(--accent);
+}
+
+/* === Orders list === */
+#orders-list {
+  margin-bottom: 1rem;
+}
+
+.empty-msg {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+.order-ticket {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.order-ticket:last-child {
+  border-bottom: none;
+}
+
+.ticket-num {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  color: var(--accent);
+  min-width: 2.2rem;
+  line-height: 1.3;
+}
+
+.ticket-desc {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 11px;
+}
+
+/* === Other Devices === */
+@media (max-width: 480px) {
+  .hero-banner {
+    height: 140px;
+  }
+  .header-inner {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .header-label {
+    display: none;
+  }
+  .card {
+    padding: 1.25rem 1rem;
+  }
+  input[type='number'] {
+    max-width: 90px;
+  }
+  .food-strip {
+    gap: 0.4rem;
+  }
+  .food-strip__item span {
+    font-size: 9px;
+  }
+}
