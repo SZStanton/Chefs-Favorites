@@ -6,8 +6,7 @@ A non-React web app where users submit a main ingredient and receive a chef-pick
 
 <table>
   <tr>
-    <td><img src="screenshots/order-desk.png" width="300" alt="Order desk"/></td>
-    <td><img src="screenshots/pending-orders.png" width="300" alt="Pending orders"/></td>
+    <td><img src="screenshots/dashboard.png" width="500" alt="Order desk"/></td>
   </tr>
 </table>
 
